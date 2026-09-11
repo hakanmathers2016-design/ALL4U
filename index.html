@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0616" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="ALL4U" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="assets/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>ALL4U</title>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="mini-profile">
+        <div class="avatar small" id="myAvatar">T</div>
+        <div>
+          <span class="eyebrow"><span id="myNameTop">Tavşan</span> ♡</span>
+          <strong id="myStatusLabel">Oyun oynuyorum 🎮</strong>
+        </div>
+      </div>
+      <h1 class="brand">ALL<span>4</span>U</h1>
+      <button class="icon-btn" id="settingsBtn" aria-label="Ayarlar">⚙️</button>
+    </header>
+
+    
+    <section id="pairingCard" class="pairing card">
+      <div style="width:100%">
+        <span class="eyebrow">İkiniz için özel</span>
+        <strong id="pairTitle">Partnerinle eşleş</strong>
+        <p id="pairInfo">Bir çift oluştur veya partnerinin ALL4U kodunu gir.</p>
+        <div class="pair-actions">
+          <button class="primary-btn" id="createCouple">Çift oluştur</button>
+          <div class="join-row">
+            <input id="joinCode" maxlength="7" placeholder="4U-1234">
+            <button id="joinCouple">Koda katıl</button>
+          </div>
+        </div>
+        <div id="codeBox" class="code-box" hidden>
+          <span>Çift kodunuz</span><b id="coupleCode">—</b>
+        </div>
+      </div>
+    </section>
+
+    <section class="partner-card glow">
+      <div class="partner-backdrop"></div>
+      <div class="partner-avatar-wrap">
+        <div class="avatar large" id="partnerAvatar">M</div>
+        <span class="online-dot"></span>
+      </div>
+      <h2><span id="partnerName">Mirket</span> ♡</h2>
+      <button class="status-pill" id="partnerStatusBtn">
+        <span id="partnerStatusEmoji">🟢</span>
+        <span id="partnerStatusText">Müsait</span>
+      </button>
+      <p class="quote" id="partnerQuote">“Seni düşünüyor ♡”</p>
+      <p class="updated" id="updatedText">Az önce güncellendi</p>
+    </section>
+
+    <section class="section">
+      <p class="section-title">Ona bir şey gönder</p>
+      <div class="actions-grid">
+        <button class="action-card" data-action="heart">
+          <span class="action-icon">❤️</span>
+          <span>Kalp Gönder</span>
+        </button>
+        <button class="action-card" data-action="kiss">
+          <span class="action-icon">💋</span>
+          <span>Öpücük Gönder</span>
+        </button>
+        <button class="action-card" data-action="hug">
+          <span class="action-icon">🫂</span>
+          <span>Sarıl Gönder</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="my-status card">
+      <div>
+        <span class="eyebrow">Senin Durumun</span>
+        <strong id="myStatusCard">Oyun oynuyorum 🎮</strong>
+      </div>
+      <button id="openStatus">Durumunu Değiştir →</button>
+    </section>
+
+    <section class="install-card card">
+      <div>
+        <span class="eyebrow">iPhone</span>
+        <strong>Ana ekrana ekle</strong>
+        <p>Safari → Paylaş → Ana Ekrana Ekle</p>
+      </div>
+      <span class="spark">✦</span>
+    </section>
+
+    <nav class="bottom-nav">
+      <button class="nav-active">⌂<span>Ana Sayfa</span></button>
+      <button>♡<span>Etkileşim</span></button>
+      <button>◉<span>Durum</span></button>
+      <button id="bottomSettingsBtn">⚙<span>Ayarlar</span></button>
+    </nav>
+  </main>
+
+  <dialog id="statusDialog">
+    <div class="dialog-inner">
+      <div class="dialog-head">
+        <div>
+          <span class="eyebrow">ALL4U</span>
+          <h3>Durumunu Seç</h3>
+        </div>
+        <button id="closeStatus" class="icon-btn">✕</button>
+      </div>
+      <div id="statusGrid" class="status-grid"></div>
+      <label class="custom-status">
+        <span>Kendi durumun</span>
+        <input id="customStatus" maxlength="40" placeholder="Örn. Seni düşünüyorum..." />
+      </label>
+      <button class="primary-btn" id="saveCustom">Kaydet</button>
+    </div>
+  </dialog>
+
+
+  <dialog id="settingsDialog">
+    <div class="dialog-inner">
+      <div class="dialog-head">
+        <div>
+          <span class="eyebrow">ALL4U</span>
+          <h3>Ayarlar</h3>
+        </div>
+        <button id="closeSettings" class="icon-btn">✕</button>
+      </div>
+
+      <label class="custom-status">
+        <span>Benim adım</span>
+        <input id="myNameInput" maxlength="20" placeholder="Tavşan" />
+      </label>
+
+      <label class="custom-status">
+        <span>Partnerimin adı</span>
+        <input id="partnerNameInput" maxlength="20" placeholder="Mirket" />
+      </label>
+
+      <div class="settings-info">
+        <span class="eyebrow">Çift kodu</span>
+        <strong id="settingsCoupleCode">Henüz eşleşme yok</strong>
+      </div>
+
+      <button class="primary-btn" id="saveNames">İsimleri Kaydet ♡</button>
+      <button class="secondary-btn" id="notificationSettings">Bildirim İznini Kontrol Et</button>
+      <button class="secondary-btn danger-btn" id="disconnectCouple">Bağlantıyı Kes</button>
+    </div>
+  </dialog>
+
+  <div id="toast" class="toast" role="status"></div>
+  <div id="burst" class="burst"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>
