@@ -51,9 +51,9 @@ document.querySelectorAll(".action-card").forEach(btn => {
   btn.addEventListener("click", () => {
     const type = btn.dataset.action;
     const data = {
-      heart: ["❤️", "Partnerine bir kalp gönderdin"],
-      kiss: ["💋", "Partnerine bir öpücük gönderdin"],
-      hug: ["🫂", "Partnerine sarılma gönderdin"]
+      heart: ["❤️", "Mirkete bir kalp gönderdin"],
+      kiss: ["💋", "Mirkete bir öpücük gönderdin"],
+      hug: ["🫂", "Mirkete sarılma gönderdin"]
     }[type];
     animateBurst(data[0]);
     showToast(data[1] + " ♡");
@@ -311,7 +311,7 @@ async function subscribeRealtime() {
     })
     .on("postgres_changes", {event:"INSERT", schema:"public", table:"interactions", filter:"couple_id=eq."+currentCoupleId}, payload => {
       if (payload.new.sender_id === currentUser.id) return;
-      const map = {heart:["❤️","Partnerin sana bir kalp gönderdi"],kiss:["💋","Partnerin sana bir öpücük gönderdi"],hug:["🫂","Partnerin sana sarılma gönderdi"]};
+      const map = {heart:["❤️","Mirket sana bir kalp gönderdi"],kiss:["💋","Mirket sana bir öpücük gönderdi"],hug:["🫂","Mirket sana sarılma gönderdi"]};
       const d = map[payload.new.type] || ["💜","Partnerinden bir etkileşim geldi"];
       animateBurst(d[0]); showToast(d[1]); tryNotification("ALL4U", d[1]);
     }).subscribe();
@@ -362,11 +362,11 @@ async function pollPartnerState() {
   if (!ie && interactions?.length) {
     for (const item of interactions) {
       const map = {
-        heart:["❤️","Partnerin sana bir kalp gönderdi"],
-        kiss:["💋","Partnerin sana bir öpücük gönderdi"],
-        hug:["🫂","Partnerin sana sarılma gönderdi"]
+        heart:["❤️","Mirket sana bir kalp gönderdi"],
+        kiss:["💋","Mirket sana bir öpücük gönderdi"],
+        hug:["🫂","Mirket sana sarılma gönderdi"]
       };
-      const d = map[item.type] || ["💜","Partnerinden bir etkileşim geldi"];
+      const d = map[item.type] || ["💜","Mirketten bir etkileşim geldi"];
       animateBurst(d[0]);
       showToast(d[1]);
       tryNotification("ALL4U", d[1]);
