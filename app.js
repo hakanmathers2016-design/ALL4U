@@ -550,7 +550,7 @@ window.OneSignalDeferred.push(async function(OneSignal) {
     oneSignalInstance = OneSignal;
     await OneSignal.init({
       appId: ONESIGNAL_APP_ID,
-      serviceWorkerPath: "/ALL4U/sw.js",
+      serviceWorkerPath: "ALL4U/sw.js",
       serviceWorkerParam: { scope: "/ALL4U/" },
       notifyButton: { enable: false },
       welcomeNotification: { disable: true },
